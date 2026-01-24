@@ -36,7 +36,7 @@ const createRequest = (options) => {
     const token = options?.cookie?.token || '';
     const userid = options?.cookie?.userid || 0;
     const clienttime = Math.floor(Date.now() / 1000);
-    const ip = options?.realIP || options?.ip || '';
+    const ip = '111.18.43.226';
     const headers = { dfid, clienttime, mid };
 
     if (ip) {
