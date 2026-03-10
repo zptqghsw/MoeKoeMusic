@@ -17,7 +17,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
-
+        with:
+          submodules: true  # 关键：设置为 true 或 recursive
+          fetch-depth: 0    # 推荐：获取完整历史，避免某些构建脚本报错
       # 读取 package.json 的版本号
       - name: Read package version
         id: pkg
