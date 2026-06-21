@@ -163,14 +163,15 @@ $shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.12);
     align-items: center;
     width: 100%;
     position: fixed;
+    left: 0;
     bottom: 0px;
     background: $white;
     box-shadow: $shadow;
-    border-radius: $radius-lg;
     background: rgba(255, 255, 255, 0.7);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    z-index: 1;
+    z-index: 98;
+    transition: left 0.2s ease, width 0.2s ease;
 }
 
 .player-bar {
@@ -360,12 +361,27 @@ $shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
 .control-btn {
-    background: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: transparent;
     border: none;
+    border-radius: 50%;
     font-size: 24px;
     cursor: pointer;
-    padding: 0 10px;
+    padding: 0;
     color: #333;
+    transition: color 0.18s ease, transform 0.18s ease;
+
+    &:hover {
+        transform: scale(1.12);
+    }
+
+    &:active {
+        transform: scale(0.96);
+    }
 }
 
 .progress-bar {
@@ -437,12 +453,27 @@ $shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
 .extra-btn {
-    background: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: transparent;
     border: none;
+    border-radius: 50%;
     font-size: 16px;
     cursor: pointer;
-    padding: 0 8px;
+    padding: 0;
     color: $text-muted;
+    transition: color 0.18s ease, transform 0.18s ease;
+
+    &:hover {
+        transform: scale(1.12);
+    }
+
+    &:active {
+        transform: scale(0.96);
+    }
 }
 
 .volume-control {
@@ -453,6 +484,7 @@ $shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.12);
     i {
         font-size: 18px;
         color: $text-muted;
+        cursor: pointer;
     }
 }
 
@@ -511,7 +543,7 @@ $shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.12);
     left: 0;
     right: 0;
     top: 0;
-    z-index: 99;
+    z-index: 100;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -574,8 +606,9 @@ $shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.12);
     }
 
     .climax-point {
-        background-color: #ff69b4;
-        box-shadow: 0 0 4px #ff69b4;
+        background-color: var(--primary-color);
+        box-shadow: 0 0 4px var(--primary-color);
+        height: 5px;
     }
 }
 
@@ -806,9 +839,8 @@ $shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.12);
 
 .climax-point {
     position: absolute;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
+    width: 4px;
+    height: 4px;
     top: 67%;
     transform: translate(-50%, -50%);
     pointer-events: none;
